@@ -32,7 +32,7 @@ chrootall() {
     echo "initrd /intel-ucode.img" >> ${BOOT_CFG}
     echo "initrd /initramfs-linux.img" >> ${BOOT_CFG}
     export PART_ID=$(blkid -o value -s UUID ${NVME}p2)
-    echo "options rd.luks.name=${PART_ID}=luks root=/dev/mapper/${VG}-${ROOT} rw fbcon=rotate:1" >> ${BOOT_CFG}
+    echo "options rd.luks.name=${PART_ID}=luks root=/dev/mapper/${VG}-${ROOT} rw" >> ${BOOT_CFG}
 
     # create boot loader
     export LOADER=/boot/loader/loader.conf
