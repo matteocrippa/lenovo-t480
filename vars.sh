@@ -13,5 +13,5 @@ export HOSTNAME=earth
 export TIMEZONE=/Europe/Rome
 export USER=matteo
 export BOOT_CFG=/boot/loader/entries/arch.conf
-export HOOKS="HOOKS=(base udev autodetect modconf block sd-vconsole keymap keyboard encrypt lvm2 filesystems fsck systemd)"
+export HOOKS="HOOKS=(base udev autodetect modconf block keymap keyboard sd-encrypt sd-lvm2 filesystems fsck systemd)"
 
