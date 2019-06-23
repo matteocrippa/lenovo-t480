@@ -82,6 +82,7 @@ set_tlp() {
 set_xorg() {
     yay -S xorg-server xorg-xev xorg-xinit xorg-xkill xorg-xmodmap xorg-xprop xorg-xrandr xorg-xrdb xorg-xset xinit-xsession --needed --noconfirm
 
+     sudo cp xorg/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
     sudo cp xorg/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
     sudo cp xorg/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 
