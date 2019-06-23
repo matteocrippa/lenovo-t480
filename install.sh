@@ -124,6 +124,9 @@ mountall() {
     mount /dev/mapper/${VG}-${ROOT} /mnt
     mkdir /mnt/boot
     mount ${NVME}p1 /mnt/boot
+    mkdir /mnt/home
+    mount /dev/mapper/ssd_group-home /mnt/home
+    swapon /dev/mapper/${VG}-${SWAP}
 }
 
 # pacstrap
