@@ -22,7 +22,7 @@ chrootall() {
     export PART_ID=$(blkid -o value -s UUID ${SSD}1)
     echo "ssd UUID=${PART_ID} /root/keyfile luks" >> /etc/crypttab
     export HOME_ID=${blkid -o value -s UUID /dev/mapper/ssd_group-home)
-    echo "UUID=${HOME_ID} /home ext4 rw,relatime>0 1" >> /etc/fstab
+    echo "UUID=${HOME_ID} /home ext4 defaults 0 1" >> /etc/fstab
 
     # install boot
     bootctl install
