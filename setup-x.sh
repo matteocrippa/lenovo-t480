@@ -117,6 +117,9 @@ sudo systemctl enable lenovo_fix
 sudo systemctl start lenovo_fix
 }
 
+disable_camera() {
+echo "blacklist uvcvideo" | sudo tee -a /etc/modprobe.d/disable_webcam.conf
+}
 
 # exec script
 update_pacman
@@ -132,3 +135,4 @@ set_extrakeys
 set_lenovo
 set_i3
 set_terminal
+disable_camera
