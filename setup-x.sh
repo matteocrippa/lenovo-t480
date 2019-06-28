@@ -121,6 +121,12 @@ disable_camera() {
 echo "blacklist uvcvideo" | sudo tee -a /etc/modprobe.d/disable_webcam.conf
 }
 
+set_refind() {
+yay -Sy refind-efi
+refind-install
+yay -Sy refind-black-git
+}
+
 # exec script
 update_pacman
 set_yay
@@ -136,3 +142,4 @@ set_lenovo
 set_i3
 set_terminal
 disable_camera
+set_refind
