@@ -124,10 +124,6 @@ echo "blacklist uvcvideo" | sudo tee -a /etc/modprobe.d/disable_webcam.conf
 set_refind() {
 yay -Sy refind-efi
 refind-install
-cd /tmp
-git clone git@github.com:dheishman/refind-dreary.git
-cd refind-dreary
-sudo ./install.sh highres /boot/EFI/refind
 }
 
 # exec script
