@@ -88,9 +88,9 @@ set_xorg() {
 
     yay -Sy xf86-video-intel --needed --noconfirm
 
-    #yay -Sy evdi displaylink --needed --noconfirm
-    #sudo systemctl enable displaylink.service
-    #sudo cp xorg/20-evdidevice.conf /etc/x11/xorg.conf.d/20-evdidevice.conf
+    yay -Sy dockd evdi displaylink --needed --noconfirm
+    sudo systemctl enable displaylink.service
+    sudo cp xorg/20-evdidevice.conf /etc/x11/xorg.conf.d/20-evdidevice.conf
 }
 
 set_i3() {
