@@ -121,12 +121,6 @@ disable_camera() {
     echo "blacklist uvcvideo" | sudo tee -a /etc/modprobe.d/disable_webcam.conf
 }
 
-set_dock() {
-    yay -Sy --needed --noconfirm dockd
-    sudo systemctl enable acpid
-    sudo systemctl start acpid
-}
-
 # exec script
 update_pacman
 set_yay
@@ -142,4 +136,3 @@ set_lenovo
 set_i3
 set_terminal
 disable_camera
-set_dock
