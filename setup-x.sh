@@ -103,27 +103,28 @@ set_terminal() {
 }
 
 set_extrakeys() {
- # Setup extra keys
-sudo echo "evdev:name:ThinkPad Extra Buttons:dmi:bvn*:bvr*:bd*:svnLENOVO*:pn*" | sudo tee /etc/udev/hwdb.d/90-thinkpad-keyboard.hwdb
-echo "KEYBOARD_KEY_45=prog1" | sudo tee -a /etc/udev/hwdb.d/90-thinkpad-keyboard.hwdb
-echo "KEYBOARD_KEY_49=prog2" | sudo tee -a /etc/udev/hwdb.d/90-thinkpad-keyboard.hwdb
-sudo udevadm hwdb --update
-sudo udevadm trigger --sysname-match="event*"
+# Setup extra keys
+    sudo echo "evdev:name:ThinkPad Extra Buttons:dmi:bvn*:bvr*:bd*:svnLENOVO*:pn*" | sudo tee /etc/udev/hwdb.d/90-thinkpad-keyboard.hwdb
+    echo "KEYBOARD_KEY_45=prog1" | sudo tee -a /etc/udev/hwdb.d/90-thinkpad-keyboard.hwdb
+    echo "KEYBOARD_KEY_49=prog2" | sudo tee -a /etc/udev/hwdb.d/90-thinkpad-keyboard.hwdb
+    sudo udevadm hwdb --update
+    sudo udevadm trigger --sysname-match="event*"
 }
 
 set_lenovo() {
-yay -Sy lenovo-throttling-fix-git
-sudo systemctl enable lenovo_fix
-sudo systemctl start lenovo_fix
+    yay -Sy lenovo-throttling-fix-git --needed --noconfirm
+    sudo systemctl enable lenovo_fix
+    sudo systemctl start lenovo_fix
 }
 
 disable_camera() {
-echo "blacklist uvcvideo" | sudo tee -a /etc/modprobe.d/disable_webcam.conf
+    echo "blacklist uvcvideo" | sudo tee -a /etc/modprobe.d/disable_webcam.conf
 }
 
-set_refind() {
-yay -Sy refind-efi
-refind-install
+set_dock() {
+    yay -Sy --needed --noconfirm dockd
+    sudo systemctl enable acpid
+    sudo systemctl start acpid
 }
 
 # exec script
@@ -141,4 +142,4 @@ set_lenovo
 set_i3
 set_terminal
 disable_camera
-set_refind
+set_dock
